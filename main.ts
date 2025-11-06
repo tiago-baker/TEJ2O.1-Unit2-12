@@ -2,26 +2,20 @@
  *
  * Created by: Tiago Baker
  * Created on: Oct 2025
- * This program turns neopixels red if within 10cm else turn green if more than 10cm
-*/
+ * This program turns neopixels red if within 10cm, else turns them green if more than 10cm.
+ */
 
-//setup
+// setup
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 // variables
 let distance = 0
-let neopixelStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
+let neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 
 // clear neopixels
-basic.clearScreen()
-neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
-neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.clear()
 neopixelStrip.show()
-basic.showIcon(IconNames.Happy)
 
 // When button A is pressed
 input.onButtonPressed(Button.A, function () {
@@ -38,16 +32,16 @@ input.onButtonPressed(Button.A, function () {
         neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
-        neopixelStrip.show()
-        basic.showIcon(IconNames.Happy)
     }
-    // else (distance >= 10 cm) turn them green
-    else { (distance >= 10) 
+    // Else (distance >= 10 cm), turn them green
+    else {
         neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-        neopixelStrip.show()
-        basic.showIcon(IconNames.Happy)
     }
+
+    // Show neopixels
+    neopixelStrip.show()
+    basic.showIcon(IconNames.Happy)
 })
