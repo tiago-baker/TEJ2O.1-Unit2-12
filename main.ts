@@ -13,13 +13,15 @@ basic.showIcon(IconNames.Happy)
 let distance: number = 0
 let neopixelStrip: neopixel.Strip = null
 
-// setup neopixels
-neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+// setup
+basic.clearScreen()
+neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.show()
+basic.showIcon(IconNames.Happy)
 
 // When button A is pressed
 input.onButtonPressed(Button.A, function () {
@@ -31,23 +33,25 @@ input.onButtonPressed(Button.A, function () {
     )
 
     // If distance < 10 cm, turn all neopixels red
-    if (distance < 10) {
+    if (true) { (distance < 10) 
         neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
         neopixelStrip.show()
         basic.showIcon(IconNames.Happy)
+        
     }
-    
+
     // Else (distance >= 10 cm), turn them green
-    else {
+    else { (distance >= 10) 
         neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
         neopixelStrip.show()
         basic.showIcon(IconNames.Happy)
+        
     }
 
 })
