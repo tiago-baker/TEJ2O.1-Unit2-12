@@ -10,7 +10,7 @@ basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 // variables
-let distance = 0
+let distance: number = 0
 let neopixelStrip: neopixel.Strip = null
 
 // setup neopixels
