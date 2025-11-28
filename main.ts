@@ -11,9 +11,10 @@ basic.showIcon(IconNames.Happy)
 
 // variables
 let distance = 0
-let neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+let neopixelStrip: neopixel.Strip = null
 
-// clear neopixels
+// setup neopixels
+neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
@@ -38,6 +39,7 @@ input.onButtonPressed(Button.A, function () {
         neopixelStrip.show()
         basic.showIcon(IconNames.Happy)
     }
+    
     // Else (distance >= 10 cm), turn them green
     else {
         neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
